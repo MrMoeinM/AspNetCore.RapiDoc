@@ -350,4 +350,4 @@ MigrationBackup/
 .ionide/
 
 # RapiDoc js/css Contents 
-AspNetCore.RapiDoc/content/
+src/AspNetCore.RapiDoc/content/
