@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Middleware to expose an embedded version of the RapiDoc from an ASP.NET Core application</Description>
@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="index.html" />
-    <EmbeddedResource Include="node_modules/rapidoc/dist/**/*" Exclude="**/*/*.map;**/*/*.json;**/*/*.md;**/*/*.gz;**/*/report.html" />
+    <EmbeddedResource Include="content/*.*" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
