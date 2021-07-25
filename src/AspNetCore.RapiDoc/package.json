@@ -1,0 +1,8 @@
+{
+  "name": "AspNetCore.RapiDoc",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "rapidoc": "9.0.0"
+  }
+}
