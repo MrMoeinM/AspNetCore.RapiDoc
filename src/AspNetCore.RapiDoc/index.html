@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes">
+    <title>%(DocumentTitle)</title>
+
+    <link rel="stylesheet" href="default.min.css">
+    <script src="highlight.min.js"></script>
+
+    <script defer="defer" src="rapidoc-min.js"></script>
+</head>
+<body>
+    <rapi-doc id="thedoc" 
+              spec-url="https://petstore.swagger.io/v2/swagger.json" 
+              sort-tags="%(SortTags)"
+              sort-endpoints-by="%(SortEndpointsBy)"
+              heading-text="%(HeadingText)"
+              goto-path="%(GotoPath)"
+              fill-request-fields-with-example="%(FillRequestFieldsWithExample)"
+
+              theme="%(Theme)"
+              bg-color="%(BgColor)"
+              text-color="%(TextColor)"
+              header-color="%(HeaderColor)"
+              primary-color="%(PrimaryColor)"
+              load-fonts="%(LoadFonts)"
+              regular-font="%(RegularFont)"
+              mono-font="%(MonoFont)"
+              font-size="(FontSize)"
+
+              use-path-in-nav-bar="%(UsePathInNavBar)"
+              nav-bg-color="%(NavBgColor)"
+              nav-bg-image="%(NavBgImage)"
+              nav-bg-image-size="%(NavBgImageSize)"
+              nav-bg-image-repeat="%(NavBgImageRepeat)"
+              nav-hover-bg-color="%(NavHoverBgColor)"
+              nav-hover-text-color="%(NavHoverTextColor)"
+              nav-accent-color="%(NavAccentColor)"
+              nav-item-spacing="%(NavItemSpacing)"
+
+              layout="%(Layout)"
+              render-style="%(RenderStyle)"
+              on-nav-tag-click="%(OnNavTagClick)"
+              schema-style="%(SchemaStyle)"
+              schema-expand-level="%(SchemaExpandLevel)"
+              schema-description-expanded="%(SchemaDescriptionExpanded)"
+              schema-hide-read-only="%(SchemaHideReadOnly)"
+              schema-hide-write-only="%(SchemaHideWriteOnly)"
+              default-schema-tab="%(DefaultSchemaTab)"
+              response-area-height="%(ResponseAreaHeight)"
+
+              show-info="%(ShowInfo)"
+              info-description-headings-in-navbar="%(InfoDescriptionHeadingsInNavbar)"
+              show-components="%(ShowComponents)"
+              show-header="%(ShowHeader)"
+              allow-authentication="%(AllowAuthentication)"
+              allow-spec-url-load="%(AllowSpecUrlLoad)"
+              allow-spec-file-load="%(AllowSpecFileLoad)"
+              allow-search="%(AllowSearch)"
+              allow-advanced-search="%(AllowAdvancedSearch)"
+              allow-try="%(AllowTry)"
+              allow-server-selection="%(AllowServerSelection)"
+              allow-schema-description-expand-toggle="%(AllowSchemaDescriptionExpandToggle)"
+
+              server-url="%(ServerUrl)"
+              default-api-server="%(DefaultApiServer)"
+              api-key-name="%(ApiKeyName)"
+              api-key-location="%(ApiKeyLocation)"
+              api-key-value="%(ApiKeyValue)"	
+              fetch-credentials="%(FetchCredentials)"
+              >
+
+    </rapi-doc>
+    <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const docEl = document.getElementById('thedoc');
+        docEl.addEventListener('before-try', (e) => {
+            e.detail.request.headers.append('AAA-BBB', 'CCC DDDD');
+        });
+    });
+    </script>
+</body>
+</html>
