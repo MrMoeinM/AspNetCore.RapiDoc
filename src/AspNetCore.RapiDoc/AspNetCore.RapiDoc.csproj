@@ -13,11 +13,6 @@
     <RepositoryUrl>https://github.com/MrMoeinM/AspNetCore.RapiDoc.git</RepositoryUrl>
   </PropertyGroup>
 
-  <!-- Use Visual Studio npm package if it is installed. -->
-  <PropertyGroup Condition="Exists('$(VsInstallRoot)\Web\External\npm.cmd')">
-    <Path>$(Path)$(VsInstallRoot)\Web\External\;</Path>
-  </PropertyGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="index.html" />
     <EmbeddedResource Include="content/*.*" />
@@ -34,11 +29,35 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
-  <Target Name="NpmInstall" BeforeTargets="Build">
+  <Target Name="CreateContentDirectory" Condition="!Exists('content')">
+    <MakeDir Directories="content" />
+  </Target>
+
+  <Target Name="GatherHighlightJsFile" BeforeTargets="Build" DependsOnTargets="CreateContentDirectory" Condition="!Exists('content\highlight.min.js')">
+    <RemoveDir Directories="highlightjs" />
+    <Exec Command="git clone https://github.com/highlightjs/cdn-release.git ./highlightjs" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Exec Command="git checkout 9.18.1" WorkingDirectory="highlightjs" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Copy SourceFiles="highlightjs\build\highlight.min.js" DestinationFolder="content\" />
+    <Copy SourceFiles="highlightjs\build\styles\default.min.css" DestinationFolder="content\" />
+  </Target>
+
+  <Target Name="GatherRapiDocCssJsFiles" BeforeTargets="Build" DependsOnTargets="CreateContentDirectory" Condition="!Exists('content\rapidoc-min.js')">
     <Exec Command="npm install" EnvironmentVariables="PATH=$(Path.Replace(';', '%3B'))" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js/npm is required to build this project. To continue, please install Node.js from https://nodejs.org/ or Visual Studio Installer, and then restart your command prompt or IDE." />
+    <Copy SourceFiles="node_modules\rapidoc\dist\rapidoc-min.js" DestinationFolder="content\">
+    </Copy>
+  </Target>
+
+  <Target Name="CleanAll" AfterTargets="Clean">
+    <RemoveDir Directories="highlightjs" />
+    <RemoveDir Directories="content" />
+    <RemoveDir Directories="node_modules" />
   </Target>
 
 </Project>
