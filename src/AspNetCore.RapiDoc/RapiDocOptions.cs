@@ -104,7 +104,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// UI Layout & Placement
+        /// UI Layout and Placement
         /// </summary>
         public UILayoutOptions UILayoutOptions { get; set; } = new UILayoutOptions();
 
@@ -116,7 +116,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// API Server & calls
+        /// API Server and calls
         /// </summary>
         public ApiServerOptions ApiServerOptions { get; set; } = new ApiServerOptions();
 
@@ -379,7 +379,7 @@ namespace AspNetCore.RapiDoc
     public class UILayoutOptions
     {
         /// <summary>
-        /// Layout helps in placement of request/response sections. In column layout, request & response sections are placed one below the other, In row layout they are placed side by side. This attribute is applicable only when the device width is more than 768px and the render-style is 'view'.
+        /// Layout helps in placement of request/response sections. In column layout, request and response sections are placed one below the other, In row layout they are placed side by side. This attribute is applicable only when the device width is more than 768px and the render-style is 'view'.
         /// </summary>
         public LayoutType Layout { get; set; } = LayoutType.Row;
 
