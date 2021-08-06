@@ -72,13 +72,5 @@
               >
 
     </rapi-doc>
-    <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const docEl = document.getElementById('thedoc');
-        docEl.addEventListener('before-try', (e) => {
-            e.detail.request.headers.append('AAA-BBB', 'CCC DDDD');
-        });
-    });
-    </script>
 </body>
 </html>
