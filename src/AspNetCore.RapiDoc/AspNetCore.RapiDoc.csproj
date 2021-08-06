@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Middleware to expose an embedded version of the RapiDoc from an ASP.NET Core application</Description>
-    <TargetFrameworks>netstandard2.0;netcoreapp3.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>AspNetCore.RapiDoc</AssemblyName>
@@ -33,11 +33,13 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
+  <Target Name="RunOnceInMultiTargetFramework" BeforeTargets="DispatchToInnerBuilds" DependsOnTargets="CopyHighlightJsFile;CopyRapiDocCssJsFiles" />
+  
   <Target Name="CreateContentDirectory" Condition="!Exists('content')">
     <MakeDir Directories="content" />
   </Target>
 
-  <Target Name="GatherHighlightJsFile" BeforeTargets="Build" DependsOnTargets="CreateContentDirectory" Condition="!Exists('content\highlight.min.js')">
+  <Target Name="GatherHighlightJsFile" DependsOnTargets="CreateContentDirectory" Condition="!Exists('highlightjs\.git')">
     <RemoveDir Directories="highlightjs" />
     <Exec Command="git clone https://github.com/highlightjs/cdn-release.git ./highlightjs" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
@@ -45,20 +47,25 @@
     <Exec Command="git checkout 9.18.1" WorkingDirectory="highlightjs" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
-    <Copy SourceFiles="highlightjs\build\highlight.min.js" DestinationFolder="content\" />
-    <Copy SourceFiles="highlightjs\build\styles\default.min.css" DestinationFolder="content\" />
   </Target>
 
-  <Target Name="GatherRapiDocCssJsFiles" BeforeTargets="Build" DependsOnTargets="CreateContentDirectory" Condition="!Exists('content\rapidoc-min.js')">
+  <Target Name="CopyHighlightJsFile" DependsOnTargets="GatherHighlightJsFile">
+    <Copy SourceFiles="highlightjs\build\highlight.min.js" DestinationFolder="content\" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="highlightjs\build\styles\default.min.css" DestinationFolder="content\" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="GatherRapiDocCssJsFiles" DependsOnTargets="CreateContentDirectory" Condition="!Exists('content\rapidoc-min.js')">
     <Exec Command="npm install" EnvironmentVariables="PATH=$(Path.Replace(';', '%3B'))" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js/npm is required to build this project. To continue, please install Node.js from https://nodejs.org/ or Visual Studio Installer, and then restart your command prompt or IDE." />
-    <Copy SourceFiles="node_modules\rapidoc\dist\rapidoc-min.js" DestinationFolder="content\">
-    </Copy>
   </Target>
 
-  <Target Name="CleanAll" AfterTargets="Clean">
+  <Target Name="CopyRapiDocCssJsFiles" DependsOnTargets="GatherRapiDocCssJsFiles">
+    <Copy SourceFiles="node_modules\rapidoc\dist\rapidoc-min.js" DestinationFolder="content\" />
+  </Target>
+
+  <Target Name="CleanAll" BeforeTargets="Clean">
     <RemoveDir Directories="highlightjs" />
     <RemoveDir Directories="content" />
     <RemoveDir Directories="node_modules" />
