@@ -29,6 +29,10 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
   <Target Name="CreateContentDirectory" Condition="!Exists('content')">
     <MakeDir Directories="content" />
   </Target>
