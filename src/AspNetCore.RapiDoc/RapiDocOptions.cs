@@ -15,7 +15,7 @@ namespace AspNetCore.RapiDoc
         public string RoutePrefix { get; set; } = "rapidoc";
 
         /// <summary>
-        /// Gets or sets a Stream function for retrieving the swagger-ui page
+        /// Gets or sets a Stream function for retrieving the rapidoc page
         /// </summary>
         public Func<Stream> IndexStream { get; set; } = () => typeof(RapiDocOptions).GetTypeInfo().Assembly
             .GetManifestResourceStream("AspNetCore.RapiDoc.index.html");
@@ -72,7 +72,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// Gets or sets additional content to place in the head of the swagger-ui page
+        /// Gets or sets additional content to place in the head of the rapidoc page
         /// </summary>
         public string HeadContent { get; set; } = string.Empty;
 
