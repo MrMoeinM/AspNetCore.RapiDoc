@@ -60,13 +60,13 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// To list tags in alphabetic order, otherwise tags will be ordered based on how it is specified under the tags section in the spec.
+        /// To list tags in alphabetic order, otherwise tags will be ordered based on how it is specified under the tags section in the spec
         /// </summary>
         public bool SortTags { get; set; } = false;
 
 
         /// <summary>
-        /// Sort endpoints within each tag by path, method or summary.
+        /// Sort endpoints within each tag by path, method or summary
         /// </summary>
         public EndpointType SortEndpointsBy { get; set; } = EndpointType.Path;
 
@@ -78,7 +78,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// Initial location on the document (identified by method and path) where you want to go after the spec is loaded.
+        /// Initial location on the document (identified by method and path) where you want to go after the spec is loaded
         /// goto-path should be in the form of {method}-{path}
         /// for instance you want to scrollTo GET /user/login you should provide the location as get-/user/login
         /// </summary>
@@ -178,7 +178,7 @@ namespace AspNetCore.RapiDoc
         Trace = 8
     }
 
-    #region
+    #region UIColorsAndFontsOptions
     public class UIColorsAndFontsOptions
     {
         /// <summary>
@@ -230,7 +230,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// sets the relative font sizes for the entire document
+        /// Sets the relative font sizes for the entire document
         /// </summary>
         public FontSize FontSize { get; set; } = FontSize.Default;
     }
@@ -261,7 +261,7 @@ namespace AspNetCore.RapiDoc
     public class NavigationBarOptions
     {
         /// <summary>
-        /// set true to show API paths in the navigation bar instead of summary/description 
+        /// Set true to show API paths in the navigation bar instead of summary/description 
         /// </summary>
         public bool UsePathInNavBar { get; set; } = false;
 
@@ -279,13 +279,13 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// Navigation bar's background image size (same as css background-size property) allowed values are
+        /// Navigation bar's background image size (same as css background-size property) 
         /// </summary>
         public ImageSize NavBgImageSize { get; set; } = ImageSize.Auto;
 
 
         /// <summary>
-        /// Navigation bar's background image repeat (same as css background-repeat property) allowed values are
+        /// Navigation bar's background image repeat (same as css background-repeat property)
         /// </summary>
         public Repeat NavBgImageRepeat { get; set; } = Repeat.NoRepeat; // ToDo: Find out it's default value
 
@@ -379,13 +379,13 @@ namespace AspNetCore.RapiDoc
     public class UILayoutOptions
     {
         /// <summary>
-        /// Layout helps in placement of request/response sections. In column layout, request and response sections are placed one below the other, In row layout they are placed side by side. This attribute is applicable only when the device width is more than 768px and the render-style is 'view'.
+        /// Layout helps in placement of request/response sections. In column layout, request and response sections are placed one below the other, In row layout they are placed side by side. This attribute is applicable only when the device width is more than 768px and the render-style is 'View'
         /// </summary>
         public LayoutType Layout { get; set; } = LayoutType.Row;
 
 
         /// <summary>
-        /// Determines display of api-docs. Currently there are three modes supported.
+        /// Determines display of api-docs. Currently there are three modes supported
         /// <see cref="RenderStyle.View"/> friendly for quick exploring (expand/collapse the section of your interest) 
         /// <see cref="RenderStyle.Read"/> suitable for reading (like a continuous web-page)
         /// <see cref="RenderStyle.Focused"/> similar to read but focuses on a single endpoint at a time (good for large specs) 
@@ -395,7 +395,7 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// Applies only to focused render-style. It determinses the behavior of clicking on a Tag in navigation bar. It can either expand-collapse the tag or take you to the tag's description page.
+        /// Applies only to focused render-style. It determinses the behavior of clicking on a Tag in navigation bar. It can either expand-collapse the tag or take you to the tag's description page
         /// </summary>
         public NavAction OnNavTagClick { get; set; } = NavAction.ExpandCollapse;
 
@@ -538,7 +538,7 @@ namespace AspNetCore.RapiDoc
     {
         /// <summary>
         /// Show/Hide the documents info section
-        /// Info section contains information about the spec, such as the title and description of the spec, the version, terms of services etc.In certain situation you may not need to show this section.For instance you are embedding this element inside a another help document. Chances are, the help doc may already have this info, in that case you may want to hide this section.
+        /// Info section contains information about the spec, such as the title and description of the spec, the version, terms of services etc.In certain situation you may not need to show this section.For instance you are embedding this element inside a another help document. Chances are, the help doc may already have this info, in that case you may want to hide this section
         /// </summary>
         public bool ShowInfo { get; set; } = true;
 
@@ -558,20 +558,20 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// Show/Hide the header.
+        /// Show/Hide the header
         /// If you do not want your user to open any other api spec, other than the current one, then set this attribute to false	
         /// </summary>
         public bool ShowHeader { get; set; } = true;
 
 
         /// <summary>
-        /// Authentication feature, allows the user to select one of the authentication mechanism thats available in the spec. It can be http-basic, http-bearer or api-key. If you do not want your users to go through the authentication process, instead want them to use a pre-generated api-key then you may hide authentication section by setting this attribute to false and provide the api-key details using various api-key-???? attributes.	
+        /// Authentication feature, allows the user to select one of the authentication mechanism thats available in the spec. It can be http-basic, http-bearer or api-key. If you do not want your users to go through the authentication process, instead want them to use a pre-generated api-key then you may hide authentication section by setting this attribute to false and provide the api-key details using various api-key-???? attributes        
         /// </summary>
         public bool AllowAuthentication { get; set; } = true;
 
 
         /// <summary>
-        /// If set to 'false', user will not be able to load any spec url from the UI.	
+        /// If set to 'false', user will not be able to load any spec url from the UI	
         /// </summary>
         public bool AllowSpecUrlLoad { get; set; } = true;
 
@@ -595,13 +595,13 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// The 'TRY' feature allows you to make REST calls to the API server. To disable this feature, set it to false.
+        /// The 'TRY' feature allows you to make REST calls to the API server. To disable this feature, set it to false
         /// </summary>
         public bool AllowTry { get; set; } = true;
 
 
         /// <summary>
-        /// If set to 'false', user will not be able to see or select API server (Server List will be hidden, however users will be able to see the server url near the 'TRY' button, to know in advance where the TRY will send the request). The URL specified in the server-url attribute will be used if set, else the first server in the API specification file will be used.	
+        /// If set to 'false', user will not be able to see or select API server (Server List will be hidden, however users will be able to see the server url near the 'TRY' button, to know in advance where the TRY will send the request). The URL specified in the server-url attribute will be used if set, else the first server in the API specification file will be used
         /// </summary>
         public bool AllowServerSelection { get; set; } = true;
 
@@ -618,13 +618,13 @@ namespace AspNetCore.RapiDoc
     public class ApiServerOptions
     {
         /// <summary>
-        /// OpenAPI spec has a provision for providing the server url. The UI will list all the server URLs provided in the spec. The user can then select one URL to which he or she intends to send API calls while trying out the apis. However, if you want to provide an API server of your own which is not listed in the spec, you can use this property to provide one. It is helpful in the cases where the same spec is shared between multiple environment say Dev and Test and each have their own API server.	
+        /// OpenAPI spec has a provision for providing the server url. The UI will list all the server URLs provided in the spec. The user can then select one URL to which he or she intends to send API calls while trying out the apis. However, if you want to provide an API server of your own which is not listed in the spec, you can use this property to provide one. It is helpful in the cases where the same spec is shared between multiple environment say Dev and Test and each have their own API server
         /// </summary>
         public string ServerUrl { get; set; } = string.Empty;
 
 
         /// <summary>
-        /// If you have multiple api-server listed in the spec, use this attribute to select the default API server, where all the API calls will goto. This can be changed later from the UI	
+        /// If you have multiple api-server listed in the spec, use this attribute to select the default API server, where all the API calls will goto. This can be changed later from the UI
         /// </summary>
         public string DefaultApiServer { get; set; } = string.Empty;
 
@@ -636,13 +636,13 @@ namespace AspNetCore.RapiDoc
 
 
         /// <summary>
-        /// determines how you want to send the api-key
+        /// Determines how you want to send the api-key
         /// </summary>
         public ApiKeyLocation ApiKeyLocation { get; set; } = 0;
 
 
         /// <summary>
-        /// Value of the API key that will be send while trying out the APIs. This can also be provided/overwritten from UI.	
+        /// Value of the API key that will be send while trying out the APIs. This can also be provided/overwritten from UI
         /// </summary>
         public string ApiKeyValue { get; set; } = string.Empty;
 
@@ -665,7 +665,7 @@ namespace AspNetCore.RapiDoc
     public enum CrossDomainCookieBehaviour
     {
         /// <summary>
-        /// Never send or receive cookies.
+        /// Never send or receive cookies
         /// </summary>
         [Display(Name = "omit")]
         Omit = 1,
@@ -677,7 +677,7 @@ namespace AspNetCore.RapiDoc
         SameOrigin = 2,
 
         /// <summary>
-        /// Always send user credentials (cookies, basic http auth, etc..), even for cross-origin calls.
+        /// Always send user credentials (cookies, basic http auth, etc..), even for cross-origin calls
         /// </summary>
         [Display(Name = "include")]
         Include = 3
