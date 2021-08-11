@@ -39,7 +39,7 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="options"></param>
         /// <param name="url">Can be fully qualified or relative to the current host</param>
         /// <param name="name">The description that appears in the document selector drop-down</param>
-        public static void SetRapidocEndpoint(this RapiDocOptions options, string url, string name)
+        public static void SetRapiDocEndpoint(this RapiDocOptions options, string url, string name)
         {
             options.SpecUrl = url;
             options.HeadingText = name;
