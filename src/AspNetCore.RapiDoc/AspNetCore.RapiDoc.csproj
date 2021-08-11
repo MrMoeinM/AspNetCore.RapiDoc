@@ -11,6 +11,10 @@
     <PackageProjectUrl>https://github.com/MrMoeinM/AspNetCore.RapiDoc</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/MrMoeinM/AspNetCore.RapiDoc.git</RepositoryUrl>
+    <Version>1.0.0-alpha.1</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <Authors>Moein Mohammadian</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +35,13 @@
 
   <ItemGroup>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <Target Name="RunOnceInMultiTargetFramework" BeforeTargets="DispatchToInnerBuilds" DependsOnTargets="CopyHighlightJsFile;CopyRapiDocCssJsFiles" />
