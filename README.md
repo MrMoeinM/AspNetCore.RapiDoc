@@ -1,3 +1,11 @@
+<div align="center">
+
+[![nuget](https://img.shields.io/nuget/v/AspNetCore.RapiDoc?style=flat-square)](https://www.nuget.org/packages/AspNetCore.RapiDoc)
+[![GitHub license](https://img.shields.io/github/license/MrMoeinM/AspNetCore.RapiDoc?style=flat-square)](https://raw.githubusercontent.com/MrMoeinM/AspNetCore.RapiDoc/master/LICENSE)
+
+</div>
+
+
 ## General
  Property    | Description   | Default
 ------------ | ------------- | -------
