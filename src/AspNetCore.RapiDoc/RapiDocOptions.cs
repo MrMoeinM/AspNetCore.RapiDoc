@@ -573,13 +573,13 @@ namespace AspNetCore.RapiDoc
         /// <summary>
         /// If set to 'false', user will not be able to load any spec url from the UI	
         /// </summary>
-        public bool AllowSpecUrlLoad { get; set; } = true;
+        public bool AllowSpecUrlLoad { get; set; } = false;
 
 
         /// <summary>
         /// If set to 'false', user will not be able to load any spec file from the local drive. This attribute is applicable only when the device width is more than 768px, else this feature is not available	
         /// </summary>
-        public bool AllowSpecFileLoad { get; set; } = true;
+        public bool AllowSpecFileLoad { get; set; } = false;
 
 
         /// <summary>
