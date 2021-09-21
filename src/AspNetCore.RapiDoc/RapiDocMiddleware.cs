@@ -109,6 +109,7 @@ namespace AspNetCore.RapiDoc
             {
                 //General Options
                 { "%(HeadingText)", _options.HeadingText },
+                { "%(DocumentTitle)", _options.HeadingText },
                 { "%(HeadContent)", _options.HeadContent },
                 { "%(SpecUrl)", _options.SpecUrl },
                 { "%(SortTags)", _options.SortTags.ToString().ToLower() },
