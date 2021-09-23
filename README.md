@@ -67,8 +67,8 @@ InfoDescriptionHeadingsInNavbar  | Include headers from info -> description sect
 ShowComponents  | Show/Hide the components section both in document and menu (available only in focused render-style) <br /> Will show the components section along with schemas, responses, examples, requestBodies, headers, securitySchemes, links and callbacks Also will be shown in the menu on the left (in read mode) | false
 ShowHeader  | Show/Hide the header. <br /> If you do not want your user to open any other api spec, other than the current one, then set this attribute to false	 | true
 AllowAuthentication  | Authentication feature, allows the user to select one of the authentication mechanism thats available in the spec. It can be http-basic, http-bearer or api-key. If you do not want your users to go through the authentication process, instead want them to use a pre-generated api-key then you may hide authentication section by setting this attribute to false and provide the api-key details using various api-key-???? attributes         | true
-AllowSpecUrlLoad  | If set to 'false', user will not be able to load any spec url from the UI | true
-AllowSpecFileLoad  | If set to 'false', user will not be able to load any spec file from the local drive. This attribute is applicable only when the device width is more than 768px, else this feature is not available	 | true
+AllowSpecUrlLoad  | If set to 'false', user will not be able to load any spec url from the UI | false
+AllowSpecFileLoad  | If set to 'false', user will not be able to load any spec file from the local drive. This attribute is applicable only when the device width is more than 768px, else this feature is not available	 | false
 AllowSearch  | Provides quick filtering of API	 | true
 AllowAdvancedSearch  | Provides advanced search functionality, to search through API-paths, API-description, API-parameters and API-Responses | true
 AllowTry  | The 'TRY' feature allows you to make REST calls to the API server. To disable this feature, set it to false. | true
