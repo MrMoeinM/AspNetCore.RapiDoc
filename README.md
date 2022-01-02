@@ -85,3 +85,15 @@ ApiKeyName       | Name of the API key that will be send while trying out the AP
 ApiKeyLocation   | Determines how you want to send the api-key | not set
 ApiKeyValue      | Value of the API key that will be send while trying out the APIs. This can also be provided/overwritten from UI | string.empty
 FetchCredentials | Enables passing credentials/cookies in cross domain calls, as defined in the Fetch standard, in CORS requests that are sent by the browser | not set
+
+## Slots Options
+ Property    | Description   | Default
+------------ | ------------- | -------
+Logo           | Replaces the default logo of the header with the URL specified	 | string.empty
+LogoWidth      | Specifies the logo width of the custom logo, does not apply to the default logo | 36
+LogoHeight     | Specifies the logo height of the custom logo, does not apply to the default logo | 36
+LogoPadding    | Specifies the logo padding of the custom logo, does not apply to the default logo | 0
+NavLogo        | Adds a navigation logo on top of the side navigation bar with the URL provided, only available in read-mode | string.empty
+NavLogoWidth   | Specifies the navigation logo width of the custom logo, only available in read-mode | 36
+NavLogoHeight  | Specifies the navigation logo height of the custom logo, only available in read-mode | 36
+NavLogoPadding | Specifies the navigation logo padding of the custom logo, only available in read-mode | 0

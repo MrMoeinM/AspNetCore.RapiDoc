@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Text;
@@ -173,6 +173,10 @@ namespace AspNetCore.RapiDoc
                 { "%(ApiKeyLocation)", _options.ApiServerOptions.ApiKeyLocation.GetDisplayValue() },
                 { "%(ApiKeyValue)", _options.ApiServerOptions.ApiKeyValue },
                 { "%(FetchCredentials)", _options.ApiServerOptions.FetchCredentials.GetDisplayValue() },
+
+                //Slot
+                { "%(LogoTag)", _options.SlotsOptions.LogoTag },
+                { "%(NavLogoTag)", _options.SlotsOptions.NavLogoTag },
             };
         }
     }
