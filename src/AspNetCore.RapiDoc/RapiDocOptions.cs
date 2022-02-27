@@ -120,6 +120,11 @@ namespace AspNetCore.RapiDoc
         /// </summary>
         public ApiServerOptions ApiServerOptions { get; set; } = new ApiServerOptions();
 
+        /// <summary>
+        /// HTML content in predefined slots
+        /// </summary>
+        public SlotOptions SlotsOptions { get; set; } = new SlotOptions();
+
     }
 
     public class PathInfo
